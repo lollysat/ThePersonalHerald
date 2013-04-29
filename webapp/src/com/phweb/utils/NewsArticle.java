@@ -7,6 +7,7 @@ public class NewsArticle
 	private String source;
 	private String summary;
 	private String category;
+	private String articleDate;
 	
 	public NewsArticle(String title, String text, String source)
 	{
@@ -43,6 +44,12 @@ public class NewsArticle
 	}
 	public void setCategory(String category) {
 		this.category = category;
+	}
+	public String getArticleDate() {
+		return articleDate;
+	}
+	public void setArticleDate(String articleDate) {
+		this.articleDate = articleDate;
 	}
 	
 	

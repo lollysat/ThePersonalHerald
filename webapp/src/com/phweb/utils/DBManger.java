@@ -304,6 +304,7 @@ public class DBManger
 				{
 					NewsArticle article = new NewsArticle(rs.getString("title"),rs.getString("text"),rs.getString("source"));
 					article.setCategory(rs.getString("category"));
+					article.setArticleDate(rs.getString("articleDate"));
 					news.add(article);
 					
 				}

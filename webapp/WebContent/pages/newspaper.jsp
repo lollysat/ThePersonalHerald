@@ -6,6 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    
     <title>Test</title>
+    
 	<script type="text/javascript" src="<s:url value="/scripts/jquery-1.9.1.js"/>"></script>	
 	<script type="text/javascript" src="<s:url value="/scripts/jquery.jcarousel.min.js"/>"></script>
 	<script type="text/javascript" src="<s:url value="/scripts/jquery.mousewheel.js"/>"></script>
@@ -15,13 +16,15 @@
 	<link rel="stylesheet" type="text/css" href="<s:url value="/styles/skin.css"/>" />
 	<link rel="stylesheet" type="text/css" href="<s:url value="/styles/ph-main.css"/>" />
 	
+	
+	
 	<script type="text/javascript">
 	
 	var imagesFolder = "<s:url value="/images" />";
 	
 	function getIconStr(category)
 	{
-		var categoryIcon = "<table class='sourceTbl'><tr><td><img src='" + imagesFolder + "/";
+		var categoryIcon = "<table class='sourceTbl' width='100%'><tr ><td width='2%'><img src='" + imagesFolder + "/";
 		
 		categoryIcon += getCategoryIcon(category);
 		
@@ -41,8 +44,9 @@
     	var closeDiv = "</div>";
     	var h1Open = "<H1>";
     	var h1Close = "</H1>";
-    	var spanOpen = "<td><a class='stitle' href='";
-    	var spanClose = "</a></td></tr></table>";
+    	var spanOpen = "</td><td align='left' ><a class='stitle' target='_blank' href='";
+    	var spanClose = "</a></td><td style='align:right;vertical-align:middle;height:100%'>";
+    	var spanTblClose = "</td></tr></table>";
     	var pOpen="<p>";
     	var pClose="</p>";
     	
@@ -65,9 +69,11 @@
     			topCount += 1;
     			str += featuresTopDiv; 
     			str += h1Open + news[i].title + h1Close;
+    			var newsSource = news[i].source;
+    			newsSource = newsSource.substring(0,50) + "...";
     			
     			if(news[i].source.length > 0)
-    				str += getIconStr(news[i].category) + spanOpen + news[i].source + "'>" + news[i].source + spanClose;
+    				str += getIconStr(news[i].category) + spanOpen + news[i].source + "'>" + newsSource + spanClose + news[i].articleDate + spanTblClose;
     			
     			str+= pOpen + news[i].text + pClose;
     			
@@ -84,9 +90,10 @@
     			bottomCount += 1;
     			str += featuresBottomDiv; 
     			str += h1Open + news[i].title + h1Close;
-    			
+    			var newsSource = news[i].source;
+    			newsSource = newsSource.substring(0,50) + "...";
     			if(news[i].source.length > 0)
-    				str += getIconStr(news[i].category) + spanOpen + news[i].source + "'>" + news[i].source + spanClose;
+    				str += getIconStr(news[i].category) + spanOpen +  news[i].source  + "'>" + newsSource + spanClose + news[i].articleDate + spanTblClose;
     			
     			str+= pOpen + news[i].text + pClose;
     			
