@@ -1,0 +1,89 @@
+/* jQuery TreeTable Core 2.0 stylesheet
+ *
+ * This file contains styles that are used to display the tree table. Each tree
+ * table is assigned the +treeTable+ class.
+ * ========================================================================= */
+
+/* jquery.treeTable.collapsible
+ * ------------------------------------------------------------------------- */
+.treeTable {
+	
+ 
+}
+
+.treeTable th {
+	
+	/* max-width: 100px; */
+	text-align: center;
+	vertical-align: bottom;
+	/* border-collapse:collapse; */
+}
+
+.treeTable td,tr,th{
+	/* border-collapse:collapse; */
+	
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #996600;
+}
+
+.treeTable th{
+	padding: 5px;
+/* 	background: #ccaa33;
+	color: #FFFFFF; */
+}
+
+.treeTable td{
+	padding: 3px;
+	padding-right: 15px;
+	background: #e7e7e7;
+}
+
+.coaPreferenceNone {
+
+}
+.coaPreferenceLeastPreferred {
+	color: red;
+}
+.coaPreferenceMostPreferred {
+	color: green;
+}
+.coaPreferenceInconclusive {
+	color: #FF7E00;
+}
+
+.treeTable tr td .expander {
+  background-position: left center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  padding: 0;
+  zoom: 1; /* IE7 Hack */
+}
+
+.treeTable tr.collapsed td .expander {
+  background-image: url(../images/treeTable/toggle-expand-dark.png);
+}
+
+.treeTable tr.expanded td .expander {
+  background-image: url(../images/treeTable/toggle-collapse-dark.png);
+}
+
+/* jquery.treeTable.sortable
+ * ------------------------------------------------------------------------- */
+.treeTable tr.selected, .treeTable tr.accept {
+  background-color: #3875d7;
+  color: #fff;
+}
+
+.treeTable tr.collapsed.selected td .expander, .treeTable tr.collapsed.accept td .expander {
+  background-image: url(../images/treeTable/toggle-expand-light.png);
+}
+
+.treeTable tr.expanded.selected td .expander, .treeTable tr.expanded.accept td .expander {
+  background-image: url(../images/treeTable/toggle-collapse-light.png);
+}
+
+.treeTable .ui-draggable-dragging {
+  color: #000;
+  z-index: 1;
+}

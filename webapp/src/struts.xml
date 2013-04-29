@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+    
+    <package name="default" namespace="/" extends="struts-default,json-default">
+     
+     
+	 
+        <!-- DEFAULT ACTION  -->
+        <default-action-ref name="index" />
+        
+        <global-results><result name="userNotAuthorized" type="dispatcher">index.jsp</result></global-results>
+        
+        <action name="index">
+            <result type="redirect">index.jsp</result>
+         </action>
+        
+        <action name="loadPrefs">
+            <result type="redirect">/pages/userPrefs.jsp</result>
+         </action> 
+         
+         <action name="loadPaper">
+            <result type="redirect">/pages/newspaper.jsp</result>
+         </action>
+         
+         <action name="viewMagic">
+            <result type="redirect">/pages/runInterface.jsp</result>
+         </action>
+         
+        <!-- LOGIN ACTION BEGIN -->
+         
+        <action name="login" class="com.phweb.action.LoginAction">
+            <result name="success" type="redirect">/pages/userPrefs.jsp</result>
+            <result name="error" type="dispatcher">index.jsp</result>
+            <result name="VIEWPAPER" type="dispatcher">/pages/newspaper.jsp</result>
+        </action>
+         
+        <action name="logout" class="com.phweb.action.LoginAction" method="logout" >
+            <result name="success" type="redirect">index.jsp</result>
+        </action>
+        
+        <action name="getUserPrefs" class="com.phweb.action.UserManager" method="getUserPrefs" >
+            <result type="json">   
+            	<param name="ignoreHierarchy">false</param>
+            </result>
+        </action>
+        
+         <action name="regenerate" class="com.phweb.action.NewsManager" method="regenerate" >
+           <result name="success" type="redirect">/pages/newspaper.jsp</result>
+        </action>
+        
+        <action name="getNewsArticles" class="com.phweb.action.NewsManager" method="getNewsArticles" >
+            <result type="json">   
+            	<param name="ignoreHierarchy">false</param>
+            </result>
+        </action>
+        
+         <action name="getTextExtractorResults" class="com.phweb.action.RunEngine" method="runExtractor" >
+            <result type="json">   
+            	<param name="ignoreHierarchy">false</param>
+            </result>
+        </action>
+        
+         <action name="getSummarizerResults" class="com.phweb.action.RunEngine" method="runSummarizer" >
+            <result type="json">   
+            	<param name="ignoreHierarchy">false</param>
+            </result>
+        </action>
+        
+        <action name="addUserPrefs" class="com.phweb.action.UserManager" method="addUserPrefs" >
+            <result type="json">   
+            	<param name="ignoreHierarchy">false</param>
+            </result>
+        </action>
+        
+        <action name="deleteUserPrefs" class="com.phweb.action.UserManager" method="deleteUserPrefs" >
+            <result type="json">   
+            	<param name="ignoreHierarchy">false</param>
+            </result>
+        </action>
+        
+        <action name="increasePrefOrder" class="com.phweb.action.UserManager" method="increasePrefOrder" >
+            <result type="json">   
+            	<param name="ignoreHierarchy">false</param>
+            </result>
+        </action>
+        
+         <action name="decreasePrefOrder" class="com.phweb.action.UserManager" method="decreasePrefOrder" >
+            <result type="json">   
+            	<param name="ignoreHierarchy">false</param>
+            </result>
+        </action>
+        
+         <action name="runDemo" class="com.phweb.action.NewsManager" method="runDemo" >
+            <result type="json">   
+            	<param name="ignoreHierarchy">false</param>
+            </result>
+        </action>
+        
+         
+        <!-- LOGIN ACTION  END -->
+         
+        
+        
+         
+    </package>
+    
+    
+    <!-- Add packages here -->
+
+</struts>
