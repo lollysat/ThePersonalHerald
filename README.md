@@ -16,3 +16,11 @@ log4j-1.2.15.jar
 ognl-2.6.11.jar
 struts2-core-2.1.6.jar
 xwork-2.1.2.jar
+
+
+In addition if any of the core modules fail to compile you might want to explicitly download the following set of jars:
+
+boilerpipe-1.1.0.jar
+Classifier4J-0.6.jar
+nekohtml-1.9.13.jar
+xerces-2.9.1.jar
