@@ -1,104 +1,9 @@
-var qualitativeEnumerationType = 'QUALITATIVE_ENUMERATION';
-var quantitativeIntervalType = 'QUANTITATIVE_INTERVAL';
-var quantitativeEnumerationType = 'QUANTITATIVE_ENUMERATION';
-
 String.prototype.trim = function() { return this.replace(/^\s+|\s+$/, ''); };
 
-/*
- * LS: If you use this javascript, make sure you add these lines as global variables in your jsp within the script section.
- * This reads the msgs from global resources.properties file.
-
-var msgConfirmDelete = '<s:text name="Msg.confirmDelete" />'
-var msgValueExists = '<s:text name="Msg.valueExists" />'
-
-*/
-
-function onQuickSearch()
-{
-	var txtItmName =document.getElementById("txtQuickItemName").value;
-	var itmType =document.getElementsByName("objType")[0];
-	var selItmType=itmType.options[itmType.selectedIndex].text;
-	$("#showSearchCriteria").val("true");
-	
-	if(selItmType==labelSearchAll && (txtItmName==null || $.trim(txtItmName)==""))
-	{
-		$('#itemTypeSelect').showBalloon({contents: msgSelectItemType});
-		setTimeout(function(){$('#itemTypeSelect').hideBalloon();},3000);	 
-		return false;
-	}
-	
-	$.fancybox.showActivity();
-	return true;
-}//end onQuickSearch()
-
-
-jQuery.fn.maxlength = function(){
-	 
-    $("textarea[maxlength]").keypress(function(event){
-    	var maxLength = $(this).attr("maxlength");
-        var length = this.value.length;
-        if(length >= maxLength) {
-            event.preventDefault();
-        }
-    });
-    
-    $("textarea[maxlength]").keyup(function(event){
-    	var maxLength = $(this).attr("maxlength");
-        var length = this.value.length;
-        if(length > maxLength) {
-
-        	this.value = this.value.substring(0, maxLength);
-        }
-    });
-    
-    $("textarea[maxlength]").mouseleave(function(event){
-    	var maxLength = $(this).attr("maxlength");
-        var length = this.value.length;
-        if(length > maxLength) {
-
-        	this.value = this.value.substring(0, maxLength);
-        }
-    });
-}
-
-jQuery.fn.findByOptionTextStr = function (data) {
-	$(this).find("option").each(function(){
-	if ($(this).text() == data)
-	$(this).attr("selected","selected");
-	});
-	};
-
-jQuery.fn.center = function () {
-	
-    this.css("position","absolute");
-    this.css("top", (($(window).height() - this.outerHeight()) / 2) + 
-                                            $(window).scrollTop() + "px");
-    this.css("left", (($(window).width() - this.outerWidth()) / 2) + 
-                                            $(window).scrollLeft() + "px");
-    this.css("z-index","100"); 
-    return this;
-}
-	
 function isNumeric(x)
 {	
 	return !isNaN(parseFloat(x)) && isFinite(x);
 }
-
-function setJqueryDDForTextWrap(idOfSelect)
-{
-	try {
-		$(idOfSelect).msDropDown();
-		} catch(e) {
-		alert(e.message);
-		}
-}
-
-function setJqueryDDItemFocus(idOfSelect)
-{
-	var oHandler = $(idOfSelect).msDropDown().data("dd");
-	oHandler.focus;
-}
-
 function hideErrorElements()
 {
 	if($('#clientSideErrors li').length==0)
@@ -199,46 +104,6 @@ function isValueValid(val) {
     	return true;
 
     return false;
-}
-
-function checkIfURIExists(table, newURI, colIndex) {
-    var exists = false;
-
-    for ( var i = 0; i < table.rows.length; i++) {
-    	var cellObj = table.rows[i].cells[colIndex];
-    	var curURI="";
-    	if(cellObj!= undefined && cellObj!=null && cellObj.innerHTML != undefined && cellObj.innerHTML!=null)
-    		curURI = table.rows[i].cells[colIndex].innerHTML;
-	
-	if (newURI.toLowerCase() == curURI.toLowerCase()) {
-	    exists = true;
-	    break;
-	}
-    }
-
-    return (exists);
-}
-
-function checkIfValueExists(table, valueArr, startColIndex) {
-    var exists = false;
-    
-    for ( var i = 0; i < table.rows.length; i++) 
-    {
-    	for(var j=0;j<valueArr.length;j++)
-    	{
-    		if(table.rows[i].cells[startColIndex + j].innerHTML.toLowerCase() == valueArr[j].toLowerCase())
-    			exists = true;
-    		else
-    		{
-    			exists = false;
-    			break;
-    		}
-    	}	
-	
-    	if(exists) break;
-    }
-
-    return (exists);
 }
 
 function deleteRow(deleteButton) {
@@ -349,31 +214,6 @@ function setCellBackgroundJQ(cell,color)
 		cell.css('color','#000000');
 }
 
-function getAttributeWithReferenceAttrUri(attributesToSearch,refAttributeUri)
-{
-	if(attributesToSearch==null || refAttributeUri==null)
-		return null;
-	
-	 for (var i = 0; i < attributesToSearch.length; i++) 
-	 {
-		 if(attributesToSearch[i].referenceAttrUri==refAttributeUri)
-			  return attributesToSearch[i];
-	 }
-	 return null;
-}
-
-function getResourceWithUri(resourcesToSearch,resourceUri)
-{
-	if(resourcesToSearch==null || resourceUri==null)
-		return null;
-	
-	 for (var i = 0; i < resourcesToSearch.length; i++) 
-	 {
-		 if(resourcesToSearch[i].uri==resourceUri)
-			  return resourcesToSearch[i];
-	 }
-	 return null;
-}
 
 function removeItem(array, item)
 {

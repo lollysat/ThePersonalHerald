@@ -24,3 +24,6 @@ boilerpipe-1.1.0.jar
 Classifier4J-0.6.jar
 nekohtml-1.9.13.jar
 xerces-2.9.1.jar
+
+We used MYSQL database for the project. Make sure you execute the script in the SQL folder and change the properties in the webapp
+and the core java files to reflect the instance specific properties.

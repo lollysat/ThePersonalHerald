@@ -6,7 +6,7 @@
     <link href="resources/main.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<div class="titleDiv">Employee Maintenance Application</div>	
+<div class="titleDiv">Personal Herald Maintenance Application</div>	
 <p>
 <font size=4 color=orange>Your are seeing the error page</font><br><br> <a href="index.html">return to the site</a><br><br>
 In order that the development team can address this error, please report what you were doing that caused this error.
